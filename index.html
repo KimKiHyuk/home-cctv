@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+    <title>home-camera</title>
+</head>
+<style>
+body, html {
+  height: 100%;
+}
+img{
+  display:block;
+  width:100%; 
+  height:100%;
+  object-fit: cover;
+}
+</style>
+<body>
+    <img id="img">
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    var img = document.getElementById('img');
+    socket = io('');
+    socket.on('data', function(data) {
+        img.src = 'data:image/jpeg;base64,' + data;
+    });
+</script> 
+</body>
+</html>
+
